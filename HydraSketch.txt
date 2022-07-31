@@ -1,0 +1,56 @@
+/Robin Newman. Hydra example driven by Sonic Pi. Crosslike.
+
+ //OSC code from hydra-osc on github 
+await loadScript("https://cdn.jsdelivr.net/gh/ojack/hydra-osc/lib/osc.min.js")
+
+  _osc = new OSC()
+  _osc.open()
+
+  /* set up to receive 2 different osc messages "/s" and "/mask" */
+
+  _osc.on("*", (m) => { console.log(m.address, m.args)})
+  s1 = 1;s2 = 1;s3 = 1 //inital values
+  _osc.on("/s", (m) => {
+    console.log(m)
+    s1 = m.args[0]
+    s2 = m.args[1]
+    s3 = m.args[2]
+  })
+mk=0 //intial value (blanks screen). can set to 1 instead to leave sketch on
+_osc.on("/mask", (m) => {
+    console.log(m)
+    mk = m.args[0]
+})
+
+ //alternative development versions: buffer 0 and 1
+voronoi(25,2,10).color(()=> a.fft[0]*4+0.4,0.8,0.4).brightness(0.5)
+.modulateRepeat(voronoi(20,1,1),2,0.1).contrast(()=>a.fft[2]+0.3)
+.modulateRotate(osc(5,()=>a.fft[0],2),0.8)
+.modulateScale(osc(()=>a.fft[1]),0.2,1).invert().luma(1,0.1)
+.mult(shape(100,0.3,1).scale(1,0.5)).color(()=>s1,()=>s2,()=>s3).mask(solid(()=>mk,()=>mk,()=>mk)).diff(o1).out(o0); //use dif to combine 0 and 1
+
+
+voronoi(25,2,10).color(()=> a.fft[0]*4+0.4,0.8,0.4).brightness(0.5)
+.modulateRepeat(voronoi(20,1,1),2,0.1).contrast(()=>a.fft[2]+0.3)
+.modulateRotate(osc(5,()=>a.fft[2],2),0.8)
+.modulateScale(osc(()=>a.fft[1]),0.2,1).invert().luma(1,0.1)  
+.mult(shape(100,0.3,1).scale(1,0.5)).color(()=>s1,()=>s2,()=>s3).kaleid().mask(solid(()=>mk,()=>mk,()=>mk)).posterize(2).thresh(0.02).out(o1);
+
+voronoi(25,2,10).color(()=> a.fft[0]*4+0.4,0.8,0.4).brightness(0.5)
+.modulateRepeat(voronoi(20,1,1),2,0.1).contrast(()=>a.fft[2]+0.3)
+.modulateRotate(osc(5,()=>a.fft[2],2),0.8)
+.modulateScale(osc(()=>a.fft[1]),0.2,1).invert().luma(1,0.1)  
+.mult(shape(100,0.3,1).scale(1,0.5)).kaleid().invert().color(()=>s1,()=>s2,()=>s3).kaleid().mask(solid(()=>mk,()=>mk,()=>mk)).posterize(2).thresh(0.02).out(o2);
+
+voronoi(25,2,10).color(()=> a.fft[0]*4+0.4,0.8,0.4).brightness(0.5)
+.modulateRepeat(voronoi(20,1,1),2,0.1).contrast(()=>a.fft[2]+0.3)
+.modulateRotate(osc(5,()=>a.fft[3],2),0.8)
+.modulateScale(osc(()=>a.fft[1]),0.2,1).invert().luma(1,0.1)  
+.mult(shape(100,0.3,1).scale(1,0.5)).kaleid().invert().kaleid().invert().color(()=>s1,()=>s2,()=>s3).kaleid().invert().mask(solid(()=>mk,()=>mk,()=>mk)).diff(o2).out(o3); //use diff to combine o2 and o3 */
+render(o3) //render either o0 or o3
+
+
+
+
+a.setSmooth(0.8)
+a.hide() //change to a.show() to see input sound graph
