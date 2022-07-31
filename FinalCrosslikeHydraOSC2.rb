@@ -1,4 +1,4 @@
-Sonic Pi code to drive Hydra sketch "Crosslike"
+#Sonic Pi code to drive Hydra sketch "Crosslike"
 #written by Robin Newman,  5 July 2022,amended 31st Julay 2020
 #feed both sound (via loopback) and OSC calls
 #via a node bridge server to hydra
