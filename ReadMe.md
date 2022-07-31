@@ -40,3 +40,6 @@ You can reduce the visiblity of the Sonic Pi screen on the Preferences/Visuals t
 so that you can place the Sonic Pi window infront of the Chrome window
 
 Run the Sonic Pi program to see the sketch accompanied by the music
+
+EDIT missing details of using a loopback to feed sound from Sonic Pi to Chrome.
+WILL BE ADDED TOMORROW
