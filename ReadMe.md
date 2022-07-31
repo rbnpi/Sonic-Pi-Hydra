@@ -31,7 +31,7 @@ The best browser in which to run the sketch is Chrome.
 The easiest way to setup the sketch is to copy the long url text file (use raw file)
 and paste it into Chrome. When you load the url it will connect to hydra.ojack.xyz
 and the sketch code will be displayed on a black background.
-`Shift+Command+H` will toggle the visibility of the code, and it is best turned off
+`Shift+Ctrl+H` will toggle the visibility of the code, and it is best turned off
 when the sketch is running.
 
 **Setting up Sonic Pi**
