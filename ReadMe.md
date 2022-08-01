@@ -54,7 +54,7 @@ Load the Hydra Sketch into Chrome. (Paste and go the raw URL-load.txt file into 
 Select the small microphone symbol towards the right and check that the mic is enabled
 and that the default blackhole input device is selected. You can open up the full page if necessary.
 
-![Mic Enable](https://github.com/rbnpi/Sonic-Pi-Hydra/blob/main/assets/ChromeMicSelect.png.png "Microphone Enable")
+![Mic Enable](https://github.com/rbnpi/Sonic-Pi-Hydra/blob/main/assets/ChromeMicSelect.png "Microphone Enable")
 
 
 **Setting up Sonic Pi**
